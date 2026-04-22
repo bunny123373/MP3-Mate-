@@ -3,7 +3,7 @@ services:
     runtime: node
     region: oregon
     rootDir: server
-    buildCommand: npm install && pip install yt-dlp
+    buildCommand: npm install && pip install "yt-dlp[nodeodescription]"
     startCommand: npx tsx src/index.ts
     envVars:
       - key: PORT

@@ -27,7 +27,7 @@ export async function getVideoInfo(url: string): Promise<{ info: VideoInfo; form
   const execAsync = promisify(exec);
 
   try {
-    const command = `yt-dlp --dump-json --no-download --no-warnings "${url}"`;
+    const command = `yt-dlp --js-runtimes node --remote-components ejs:github --dump-json --no-download --no-warnings "${url}"`;
     console.log("Running command:", command);
     const { stdout, stderr } = await execAsync(command, { timeout: 90000 });
     
@@ -83,10 +83,10 @@ export async function downloadVideo(
   let command = "";
   if (formatId.startsWith("mp3-")) {
     const bitrate = formatId.split("-")[1];
-    command = `yt-dlp -x --audio-format mp3 --audio-quality ${bitrate}k -o "${outputPath}" "${url}"`;
+    command = `yt-dlp --js-runtimes node --remote-components ejs:github -x --audio-format mp3 --audio-quality ${bitrate}k -o "${outputPath}" "${url}"`;
   } else if (formatId.startsWith("video-")) {
     const resolution = parseInt(formatId.split("-")[1]);
-    command = `yt-dlp -f "best[height<=${resolution}]" -o "${outputPath}" "${url}"`;
+    command = `yt-dlp --js-runtimes node --remote-components ejs:github -f "best[height<=${resolution}]" -o "${outputPath}" "${url}"`;
   }
 
   try {
