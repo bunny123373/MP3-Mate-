@@ -208,7 +208,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight"
         >
           YouTube to{" "}
           <span className="bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent">
@@ -222,7 +222,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-lg text-slate-400 mb-10 max-w-2xl mx-auto"
+          className="text-sm sm:text-base md:text-lg text-slate-400 mb-6 sm:mb-10 max-w-2xl mx-auto px-2"
         >
           Convert and download YouTube videos to high-quality MP3 or MP4
           formats. Fast, free, and unlimited conversions.
@@ -325,14 +325,14 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 30, scale: 0.95 }}
               transition={{ duration: 0.4 }}
-              className="mt-10 text-left"
+              className="mt-8 sm:mt-10 text-left w-full px-0 sm:px-2"
             >
-              <div className="bg-slate-900/80 backdrop-blur-sm border border-slate-800 rounded-2xl overflow-hidden shadow-2xl shadow-black/30">
+              <div className="bg-slate-900/80 backdrop-blur-sm border border-slate-800 rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl shadow-black/30">
                 {/* Video Info */}
-                <div className="p-5 sm:p-6 border-b border-slate-800">
-                  <div className="flex flex-col sm:flex-row gap-5">
+                <div className="p-4 sm:p-6 border-b border-slate-800">
+                  <div className="flex flex-col sm:flex-row gap-4">
                     {/* Thumbnail */}
-                    <div className="relative w-full sm:w-48 h-28 sm:h-28 rounded-xl overflow-hidden flex-shrink-0 bg-slate-800">
+                    <div className="relative w-full h-40 sm:w-48 sm:h-28 rounded-lg sm:rounded-xl overflow-hidden flex-shrink-0 bg-slate-800">
                       <img
                         src={videoInfo.thumbnail}
                         alt={videoInfo.title}
@@ -345,19 +345,19 @@ export default function Hero() {
 
                     {/* Details */}
                     <div className="flex-1 min-w-0">
-                      <h3 className="text-white font-semibold text-base sm:text-lg line-clamp-2 mb-2">
+                      <h3 className="text-white font-semibold text-sm sm:text-base md:text-lg line-clamp-2 mb-2">
                         {videoInfo.title}
                       </h3>
-                      <div className="flex flex-wrap items-center gap-3 text-sm text-slate-400">
-                        <span className="flex items-center gap-1.5">
-                          <User className="w-3.5 h-3.5" />
+                      <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm text-slate-400">
+                        <span className="flex items-center gap-1">
+                          <User className="w-3 h-3" />
                           {videoInfo.author}
                         </span>
-                        <span className="flex items-center gap-1.5">
-                          <Clock className="w-3.5 h-3.5" />
+                        <span className="flex items-center gap-1">
+                          <Clock className="w-3 h-3" />
                           {videoInfo.duration}
                         </span>
-                        <span>{videoInfo.views}</span>
+                        <span className="text-xs">{videoInfo.views}</span>
                       </div>
                     </div>
                   </div>
@@ -367,14 +367,14 @@ export default function Hero() {
                 <div className="flex border-b border-slate-800">
                   <button
                     onClick={() => setActiveTab("mp3")}
-                    className={`flex-1 flex items-center justify-center gap-2 py-3.5 text-sm font-medium transition-colors relative ${
+                    className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-3 text-xs sm:text-sm font-medium transition-colors relative ${
                       activeTab === "mp3"
                         ? "text-red-400"
                         : "text-slate-400 hover:text-slate-300"
                     }`}
                   >
-                    <FileAudio className="w-4 h-4" />
-                    Audio (MP3)
+                    <FileAudio className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                    <span>Audio (MP3)</span>
                     {activeTab === "mp3" && (
                       <motion.div
                         layoutId="activeTab"
@@ -384,14 +384,14 @@ export default function Hero() {
                   </button>
                   <button
                     onClick={() => setActiveTab("mp4")}
-                    className={`flex-1 flex items-center justify-center gap-2 py-3.5 text-sm font-medium transition-colors relative ${
+                    className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-3 text-xs sm:text-sm font-medium transition-colors relative ${
                       activeTab === "mp4"
                         ? "text-red-400"
                         : "text-slate-400 hover:text-slate-300"
                     }`}
                   >
-                    <Video className="w-4 h-4" />
-                    Video (MP4)
+                    <Video className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                    <span>Video (MP4)</span>
                     {activeTab === "mp4" && (
                       <motion.div
                         layoutId="activeTab"
@@ -402,8 +402,8 @@ export default function Hero() {
                 </div>
 
                 {/* Format List */}
-                <div className="p-4 sm:p-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="p-3 sm:p-4 md:p-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
                     {formats
                       .filter((f) => f.type === activeTab)
                       .map((format) => (
@@ -411,18 +411,18 @@ export default function Hero() {
                           key={format.quality}
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
-                          className="flex items-center justify-between p-4 bg-slate-800/50 border border-slate-700/50 rounded-xl hover:border-red-500/30 transition-colors group"
+                          className="flex items-center justify-between p-3 sm:p-4 bg-slate-800/50 border border-slate-700/50 rounded-lg sm:rounded-xl hover:border-red-500/30 transition-colors group"
                         >
-                          <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center group-hover:bg-red-500/10 transition-colors">
+                          <div className="flex items-center gap-2 sm:gap-3">
+                            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-slate-800 flex items-center justify-center group-hover:bg-red-500/10 transition-colors">
                               {activeTab === "mp3" ? (
-                                <FileAudio className="w-5 h-5 text-red-400" />
+                                <FileAudio className="w-4 h-4 sm:w-5 sm:h-5 text-red-400" />
                               ) : (
-                                <Video className="w-5 h-5 text-red-400" />
+                                <Video className="w-4 h-4 sm:w-5 sm:h-5 text-red-400" />
                               )}
                             </div>
                             <div>
-                              <div className="text-white font-semibold text-sm">
+                              <div className="text-white font-semibold text-xs sm:text-sm">
                                 {format.quality}
                               </div>
                               <div className="text-slate-500 text-xs">
@@ -433,7 +433,7 @@ export default function Hero() {
                           <button
                             onClick={() => handleDownload(format)}
                             disabled={downloading === format.quality}
-                            className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+                            className={`flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all ${
                               downloadComplete === format.quality
                                 ? "bg-green-500/20 text-green-400 border border-green-500/30"
                                 : "bg-red-500 hover:bg-red-600 text-white"
@@ -441,24 +441,18 @@ export default function Hero() {
                           >
                             {downloading === format.quality ? (
                               <>
-                                <Loader2 className="w-4 h-4 animate-spin" />
-                                <span className="hidden sm:inline">
-                                  Preparing...
-                                </span>
+                                <Loader2 className="w-3 h-3 sm:w-4 sm:h-4 animate-spin" />
+                                <span className="hidden sm:inline">Preparing...</span>
                               </>
                             ) : downloadComplete === format.quality ? (
                               <>
-                                <CheckCircle2 className="w-4 h-4" />
-                                <span className="hidden sm:inline">
-                                  Done
-                                </span>
+                                <CheckCircle2 className="w-3 h-3 sm:w-4 sm:h-4" />
+                                <span>Done</span>
                               </>
                             ) : (
                               <>
-                                <Download className="w-4 h-4" />
-                                <span className="hidden sm:inline">
-                                  Download
-                                </span>
+                                <Download className="w-3 h-3 sm:w-4 sm:h-4" />
+                                <span>Download</span>
                               </>
                             )}
                           </button>
