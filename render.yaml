@@ -3,7 +3,7 @@ services:
     runtime: node
     region: oregon
     rootDir: server
-    buildCommand: npm install && pip install "yt-dlp[nodeodescription]"
+    buildCommand: curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && apt-get install -y nodejs && npm install && pip install "yt-dlp[nodeodescription]"
     startCommand: npx tsx src/index.ts
     envVars:
       - key: PORT
