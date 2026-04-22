@@ -21,7 +21,8 @@ router.post("/info", async (req, res) => {
     res.json(result);
   } catch (error) {
     console.error("Error getting video info:", error);
-    res.status(500).json({ error: "Failed to get video info" });
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    res.status(500).json({ error: "Failed to get video info", details: errorMessage });
   }
 });
 

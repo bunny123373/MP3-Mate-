@@ -27,11 +27,11 @@ export async function getVideoInfo(url: string): Promise<{ info: VideoInfo; form
   const execAsync = promisify(exec);
 
   try {
-    const command = `yt-dlp --js-runtimes node --remote-components ejs:github --dump-json --no-download --no-warnings "${url}"`;
+    const command = `C:\\Users\\korra\\AppData\\Local\\Programs\\Python\\Python312\\Scripts\\yt-dlp.exe --js-runtimes node --remote-components ejs:github --dump-json --no-download "${url}"`;
     console.log("Running command:", command);
     const { stdout, stderr } = await execAsync(command, { timeout: 90000 });
     
-    if (stderr) console.log("stderr:", stderr);
+    console.log("stderr:", stderr);
     
     if (!stdout || stdout.trim() === "") {
       throw new Error(stderr || "No output from yt-dlp - video may be unavailable or private");

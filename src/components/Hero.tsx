@@ -68,7 +68,7 @@ export default function Hero() {
       setError("Please enter a valid YouTube URL");
       return;
     }
-    if (!url.includes("youtube.com") && !url.includes("youtu.be")) {
+    if (!url.includes("youtube.com") && !url.includes("youtu.be") && !url.includes("youtube.com/shorts") && !url.includes("youtube.com/embed")) {
       setError("Please enter a valid YouTube URL");
       return;
     }
