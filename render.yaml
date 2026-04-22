@@ -1,0 +1,8 @@
+services:
+  - name: mp3mate-backend
+    runtime: docker
+    region: oregon
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: PORT
+        value: "10000"
