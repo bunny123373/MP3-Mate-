@@ -1,5 +1,8 @@
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+
+const API_URL = "https://mp3mate-backend.onrender.com";
+
 import {
   Link2,
   Loader2,
@@ -39,7 +42,7 @@ export default function Hero() {
   const [error, setError] = useState("");
   const [downloading, setDownloading] = useState<string | null>(null);
   const [downloadComplete, setDownloadComplete] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<"mp3" | "mp4">("mp3");
+  const API_URL = "https://mp3mate-backend.onrender.com";
   const [formats, setFormats] = useState<Format[]>([
     { quality: "320kbps", size: "8.2 MB", type: "mp3", bitrate: "320kbps" },
     { quality: "256kbps", size: "6.5 MB", type: "mp3", bitrate: "256kbps" },
@@ -78,7 +81,7 @@ export default function Hero() {
 
     try {
       console.log("Fetching info for:", url);
-      const response = await fetch("http://localhost:3001/api/info", {
+      const response = await fetch(`${API_URL}/api/info`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url }),
@@ -135,7 +138,7 @@ export default function Hero() {
     setDownloading(format.quality);
     
     try {
-      const response = await fetch("http://localhost:3001/api/download", {
+      const response = await fetch(`${API_URL}/api/download`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url, formatId }),
