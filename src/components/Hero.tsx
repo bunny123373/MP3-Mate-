@@ -40,7 +40,7 @@ export default function Hero() {
   const [downloading, setDownloading] = useState<string | null>(null);
   const [downloadComplete, setDownloadComplete] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<"mp3" | "mp4">("mp3");
-  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3001";
+  const API_URL = import.meta.env.VITE_API_URL || "https://mp3-mate.onrender.com";
   const [formats, setFormats] = useState<Format[]>([
     { quality: "320kbps", size: "8.2 MB", type: "mp3", bitrate: "320kbps" },
     { quality: "256kbps", size: "6.5 MB", type: "mp3", bitrate: "256kbps" },
