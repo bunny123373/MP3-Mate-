@@ -1,8 +1,10 @@
 services:
   - name: mp3mate-backend
-    runtime: docker
+    runtime: node
     region: oregon
-    dockerfilePath: ./Dockerfile
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm run start
     envVars:
       - key: PORT
         value: "10000"
