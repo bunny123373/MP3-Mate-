@@ -1,8 +1,5 @@
 import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
-const API_URL = "https://mp3mate-backend.onrender.com";
-
 import {
   Link2,
   Loader2,
