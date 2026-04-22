@@ -3,8 +3,8 @@ services:
     runtime: node
     region: oregon
     rootDir: server
-    buildCommand: npm install
-    startCommand: npm run start
+    buildCommand: npm install && pip install yt-dlp
+    startCommand: npx tsx src/index.ts
     envVars:
       - key: PORT
         value: "10000"
